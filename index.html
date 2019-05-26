@@ -1,0 +1,79 @@
+<meta charset="UTF-8">
+<html>
+   <head>
+      <title>Rio Próxima Barca</title>
+      <script>
+
+      function makeDate(hour, minute)
+      {
+         var now = new Date();
+         var newDate = new Date(""+now.getFullYear()+"-"+(now.getMonth()+1)+"-"+now.getDate()+" "+hour+":"+minute);
+         console.log(newDate);
+         return newDate;
+      }
+
+      // destino rio (praça xv): 0
+      // destino niterói (praça arariboia): 1
+      // todo: outros
+      function proximaBarca(destino, tipodia)
+      {
+         var agora = new Date();
+         // dia comum
+         if(tipodia == "comum")
+         {
+            if(destino == 0) // rio
+            {
+
+            }
+
+            if(destino == 1) // niteroi
+            {
+
+            }
+
+         }
+         return makeDate(5,20);
+      }
+      </script>
+   </head>
+   <body>
+      <h1>Rio Próxima Barca</h1>
+      <b>Última atualização:</b> 26/05/2019<br/>
+      <b>Hora atual:</b>
+      <div id="horario"></div>
+      <br/>
+
+      <b>Tipo de serviço:</b>
+      <div id="tipodia"></div>
+      <br/>
+
+      <b>Sentido Araribóia -> Praça XV</b><br/>
+      <div id="horario0"></div>
+      <br/>
+
+      <b>Sentido Praça XV -> Araribóia</b><br/>
+      <div id="horario1"></div>
+      <br/>
+
+      <script>
+         console.log("oi");
+         dt = new Date();
+         var diasemana = dt.getDay();
+         var tipodia = "comum";
+         if (diasemana == 0)
+            tipodia = "domingo";
+         if (diasemana == 6)
+            tipodia = "sábado";
+         // TODO: feriado?
+
+         var proxBarca0 = proximaBarca(0, tipodia);
+         var proxBarca1 = proximaBarca(1, tipodia);
+
+         document.getElementById("tipodia").innerHTML = tipodia;
+         document.getElementById("horario").innerHTML = dt.getHours()+":"+dt.getMinutes();
+         document.getElementById("horario0").innerHTML = proxBarca0.getHours()+":"+proxBarca0.getMinutes();
+         document.getElementById("horario1").innerHTML = proxBarca1.getHours()+":"+proxBarca1.getMinutes();
+
+      </script>
+   </body>
+</html>
